@@ -33,9 +33,14 @@ const novaTarefa = document.querySelector('[data-form-button]');
 
         botaoConclui.classList.add('check-button'); /* style do botão */
         botaoConclui.innerText = 'concluir'; /* colocando texto no botão */
-        botaoConclui.addEventListener('click', ()=>{
-            console.log('clicou')
-        });
-
+        botaoConclui.addEventListener('click', concluirTarefa);
         return botaoConclui;
+    };
+
+    const concluirTarefa = (evento)=>{
+        const botaoConclui = evento.target; /* saber em quem clicou */
+
+        const tarefaCompleta = botaoConclui.parentElement; /* pegando o pai do elemento clicado */
+
+        tarefaCompleta.classList.toggle('done'); /* aplicando o efeito na lista */
     };
